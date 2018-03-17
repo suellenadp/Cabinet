@@ -2,7 +2,7 @@ class DocsController < ApplicationController
 
 	before_action :find_doc, only: [:show, :edit, :update, :destroy]
 	def index
-		@docs = Doc.all.order("created_at DESC")
+		@docs = Doc.all.order('created_at DESC')
 	end
 
 	def show
@@ -16,7 +16,7 @@ class DocsController < ApplicationController
 		@doc = Doc.new(doc_params)
 
 		if @doc.save
-			redirect_to docs.path
+			redirect_to docs_path
 		else
 			render 'new'
 		end	
@@ -28,7 +28,7 @@ class DocsController < ApplicationController
 
 	def update
 		if @doc.update(doc.params)
-			redirect_to docs.path
+			redirect_to docs_path
 		else
 			render 'edit'
 		end
@@ -36,17 +36,18 @@ class DocsController < ApplicationController
 
 	def destroy
 		@doc.destroy
-		redirect_to docs.path
-	end
+		redirect_to docs_path
+	end	
 
 	private
-	    def find_doc
-    	    @doc = Doc.find(params[:id])
+	
+	def find_doc
+    	@doc = Doc.find(params[:id])
 
-	    end
+	end
 	    
-		def doc_params
-	    	params.require(:doc).permit(:title, :content)
-	    end
+	def doc_params
+	   	params.require(:doc).permit(:title, :content)
+	end
 
 end
