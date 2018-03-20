@@ -1,6 +1,20 @@
+<<<<<<< HEAD
 = @doc.title
 = @doc.content
 
 = link_to "All Docs", docs_path 
 = link_to "Fix Doc", edit_doc_path(@doc)
 = link_to "Trash It", doc_path(@doc), method: :delete, data: {confirm: "Are you Sure?"}
+=======
+.wrapper_with_padding
+	#doc_show
+		%h1.title= @doc.title
+		%p= simple_format(@doc.content)
+
+		.buttons
+			= link_to "Fix Doc", edit_doc_path(@doc), class: "button"
+			= link_to "Trash it", doc_path(@doc), method: :delete, data: {confirm: "Are tou Sure?"}, class: "button"
+
+
+
+>>>>>>> ac5150945a8287e6116aa43a149d58f2b0ef392c

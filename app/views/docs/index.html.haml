@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - @docs.each do |doc|
 	
 	%h2= link_to doc.title, doc 
@@ -5,3 +6,20 @@
 	%p= truncate(doc.content, length:50)
 
 = link_to "New", new_doc_path	
+=======
+.wrapper_with_padding
+	#docs.clearfix
+		-unless @docs.blank?
+			-@docs.each do |doc|
+				%a{ href: (url_for [doc])}
+					.doc
+						%p.title= doc.title
+						%p.date= time_ago_in_words(doc.created_at)
+						%p.content= truncate(doc.content, length:50)
+		-else
+			%h2 Create Doc!
+			%p Start Creating documents and Organizing you life!
+			%button= link_to "Create Doc", new_doc_path
+								
+		
+>>>>>>> ac5150945a8287e6116aa43a149d58f2b0ef392c
