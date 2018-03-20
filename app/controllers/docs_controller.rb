@@ -1,11 +1,7 @@
 class DocsController < ApplicationController
 
 	before_action :find_doc, only: [:show, :edit, :update, :destroy]
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> ac5150945a8287e6116aa43a149d58f2b0ef392c
 	def index
 		@docs = Doc.where(user_id: current_user)
 	end
@@ -22,11 +18,11 @@ class DocsController < ApplicationController
 		@doc = current_user.docs.build(doc_params)
 
 		if @doc.save
-<<<<<<< HEAD
+
 			redirect_to @doc
-=======
+
 			redirect_to docs_path
->>>>>>> ac5150945a8287e6116aa43a149d58f2b0ef392c
+
 		else
 			render 'new'
 		end	
@@ -37,13 +33,13 @@ class DocsController < ApplicationController
 	end
 
 	def update
-<<<<<<< HEAD
+
 		if @doc.update(doc.params)
 			redirect_to @doc
-=======
+
 		if @doc.update(doc_params)
 			redirect_to docs_path
->>>>>>> ac5150945a8287e6116aa43a149d58f2b0ef392c
+
 		else
 			render 'edit'
 		end
@@ -51,7 +47,7 @@ class DocsController < ApplicationController
 
 	def destroy
 		@doc.destroy
-<<<<<<< HEAD
+
 		redirect_to doc_path
 	end
 
@@ -64,7 +60,6 @@ class DocsController < ApplicationController
 		def doc_params
 			params.require(:doc).permit(:title, :content)
 		end
-=======
 		redirect_to docs_path
 	end	
 
@@ -78,6 +73,5 @@ class DocsController < ApplicationController
 	def doc_params
 	   	params.require(:doc).permit(:title, :content)
 	end
->>>>>>> ac5150945a8287e6116aa43a149d58f2b0ef392c
 
 end
